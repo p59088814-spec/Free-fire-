@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phani Bank - Account Opening</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef3f9;
+  color: #183153;
+}
+
+header {
+  background: #073b78;
+  color: white;
+  padding: 22px;
+  text-align: center;
+}
+
+header h2 {
+  margin: 0;
+}
+
+.container {
+  max-width: 550px;
+  background: white;
+  margin: 25px auto;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px #0002;
+}
+
+h3 {
+  color: #073b78;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 7px;
+  border: 1px solid #ccd5e0;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 22px;
+  background: #0755a5;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+button:active {
+  background: #032d5c;
+}
+
+#result {
+  display: none;
+  background: #e5f8ed;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  color: #176238;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>🏦 PHANI BANK</h2>
+  <p>Online Account Opening Portal</p>
+</header>
+
+<div class="container">
+
+<h3>Customer Registration</h3>
+<p>Demo Account Application Form</p>
+
+<form id="bankForm">
+
+<label>Customer Name</label>
+<input type="text" id="name"
+placeholder="Enter your demo name" required>
+
+<label>Date of Birth</label>
+<input type="date" id="dob" required>
+
+<label>Mobile Number (Demo)</label>
+<input type="tel" id="mobile"
+placeholder="Enter demo number"
+pattern="[0-9]{10}" required>
+
+<label>Address (Demo)</label>
+<textarea id="address"
+placeholder="Enter sample address"
+required></textarea>
+
+<label>Account Type</label>
+<select id="account" required>
+<option value="">Select Account</option>
+<option>Savings Account</option>
+<option>Current Account</option>
+<option>Zero Balance Account</option>
+</select>
+
+<label>Nominee Name (Demo)</label>
+<input type="text" id="nominee"
+placeholder="Enter sample nominee name">
+
+<button type="submit">
+Submit Application
+</button>
+
+</form>
+
+<div id="result">
+<h3>Application Submitted!</h3>
+<p id="ref"></p>
+<p>This is only a demo reference number.
+No bank account has been opened.</p>
+</div>
+
+</div>
+
+<footer>
+Demo Project | Phani Bank
+<br>Not an actual bank or financial institution.
+</footer>
+
+<script>
+
+document.getElementById("bankForm")
+.addEventListener("submit", function(e) {
+
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+
+const ref = "DEMO" +
+Math.floor(100000 + Math.random() * 900000);
+
+document.getElementById("ref").innerText =
+"Reference Number: " + ref;
+
+document.getElementById("result").style.display =
+"block";
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
